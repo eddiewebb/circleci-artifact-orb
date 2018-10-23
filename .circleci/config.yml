@@ -69,9 +69,6 @@ jobs:
           name: Publish prod
           command: |
             circleci config process sample.yml > config.yml
-            circleci orb validate packed.yml --token ${CIRCLECI_API_KEY}
-            circleci orb publish packed.yml eddiewebb/artifacts@1.0.${CIRCLE_BUILD_NUM} --token ${CIRCLECI_API_KEY}
-      
       - run: |
           curl --user ${CIRCLECI_API_KEY}: \
             --request POST \
