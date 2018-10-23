@@ -17,5 +17,5 @@ jobs:
           echo "file3" >> reports/junit/reportC/index.html
       - artifacts/summarize
       - store_artifacts:
-          path: /code/test-results
-          destination: prefix
+          path: reports
+          destination: reports
