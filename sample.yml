@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  artifacts: eddiewebb/artifacts:volatile
+  artifacts: eddiewebb/artifacts@volatile
 
 jobs:
   build:
