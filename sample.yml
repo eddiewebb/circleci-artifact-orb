@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  artifacts: eddiewebb/artifacts:volatile
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - run: |
+          mkdir -p reports/junit/reportA
+          mkdir -p reports/junit/reportB
+          mkdir -p reports/junit/reportC
+          echo "file1" >> eports/junit/reportA/index.html
+          echo "file2" >> eports/junit/reportB/index.html
+          echo "file3" >> eports/junit/reportC/index.html
+      - artifacts/summarize
+      - store_artifacts:
+          path: /code/test-results
+          destination: prefix
