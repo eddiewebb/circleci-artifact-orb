@@ -4,14 +4,5 @@ jobs:
       - image: circleci/node:10
     working_directory: ~/repo
     steps:
-      - run: |
-          mkdir -p reports/junit/reportA
-          mkdir -p reports/junit/reportB
-          mkdir -p reports/junit/reportC
-          echo "file1" >> reports/junit/reportA/index.html
-          echo "file2" >> reports/junit/reportB/index.html
-          echo "file3" >> reports/junit/reportC/index.html
-      - artifacts/summarize
-      - store_artifacts:
-          path: reports
-          destination: reports
+      - banners/print:
+          message: "Starting build"

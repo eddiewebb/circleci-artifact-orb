@@ -1,7 +1,3 @@
-version: 2.1
-orbs:
-  banners: eddiewebb/banners@volatile
-
 jobs:
   build:
     docker:
@@ -10,5 +6,7 @@ jobs:
     steps:
       - banners/print:
           message: "Starting build"
-      - banners/ascii_art:
-          image: "someid,dontknowabothisuet"
+      - banners/print:
+          message: "Starting another"
+      - banners/print:
+          message: "Starting more"

@@ -1,29 +1,20 @@
 version: 2.1
 description: "Aggregates list of specified pattern to  make browsing artifacts easier. Printing them as an HTML index."
 commands:
-  summarize:
+  print:
     parameters:
-      parent_folder:
+      message:
         type: string
-        default: "reports"
-        description: "relative or absolute path of folder to search recursively"
-      file_pattern:
+        default: "CircleCI"
+        description: "The message..."
+      font:
         type: string
-        # this is true at command level as intention it to only block current job.
-        default: "*.html"
-        description: "The pattern of files to include in our summary"
+        default: "notimplemented"
+        description: "Not implemented"
     steps:
-      - run:
-          name: Summarize Artifact Files
-          command: |-
-            PARENT=<<parameters.parent_folder>>
-            PATTERN=<<parameters.file_pattern>>
-
-            echo "Summarizing $PATTERN files in $PARENT"
-
-            echo "<html><body><ul>" > $PARENT/summary.html
-            for f in $(find $PARENT -name "$PATTERN" ); do 
-              echo "<li><a href=\"../$f\">$f</a></li>" >> $PARENT/summary.html
-            done
-
-            echo "</ul></body></html>" >> $PARENT/summary.html
+      - run: 
+          name: Print Banner
+          command: |
+            figlet -v >/dev/null 2>/dev/null || sudo apt install -y figlet >/dev/null 2>/tmp/figlet-install
+            figlet <<parameters.message>> || cat /tmp/figlet-install
+   

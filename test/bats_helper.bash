@@ -73,7 +73,7 @@ function assert_text_not_found {
 
 function assert_matches_file {
 	FILE=$1
-	echo "${output}" | sed '/# Original config.yml file:/q' | sed '$d' | diff -B $FILE -
+	echo "${output}" | sed '/# Original config.yml file:/q' | sed '$d' | diff -Bb $FILE -
 	return $?
 }
 
