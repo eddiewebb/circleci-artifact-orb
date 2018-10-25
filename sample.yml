@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  banners: eddiewebb/banners@volatile
+  artifacts: eddiewebb/artifacts@volatile
 
 jobs:
   build:
@@ -8,7 +8,14 @@ jobs:
       - image: circleci/node:10
     working_directory: ~/repo
     steps:
-      - banners/print:
-          message: "Starting build"
-      - banners/ascii_art:
-          image: "someid,dontknowabothisuet"
+      - run: |
+          mkdir -p reports/junit/reportA
+          mkdir -p reports/junit/reportB
+          mkdir -p reports/junit/reportC
+          echo "file1" >> reports/junit/reportA/index.html
+          echo "file2" >> reports/junit/reportB/index.html
+          echo "file3" >> reports/junit/reportC/index.html
+      - artifacts/summarize
+      - store_artifacts:
+          path: reports
+          destination: reports
