@@ -66,7 +66,7 @@ jobs:
       - checkout
       - install-circleci
       - run:
-          name: Publish prod
+          name: Convert Sample to Full 2.0 Config
           command: |
             circleci config process sample.yml > config.yml
       - run: |
