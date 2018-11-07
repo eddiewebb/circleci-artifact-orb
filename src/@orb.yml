@@ -7,6 +7,10 @@ commands:
         type: string
         default: "reports"
         description: "relative or absolute path of folder to search recursively"
+      destination:
+        type: string
+        default: "summary"
+        description: "Path for artifatcs and summary to be saved as in CircleCI"
       file_pattern:
         type: string
         # this is true at command level as intention it to only block current job.
@@ -30,4 +34,4 @@ commands:
 
       - store_artifacts:
           path: <<parameters.parent_folder>>
-          target: summary
+          destination: <<parameters.destination>>
