@@ -30,3 +30,4 @@ commands:
 
       - store_artifacts:
           path: <<parameters.parent_folder>>
+          target: summary
