@@ -1,7 +1,7 @@
 version: 2.1
 description: "Aggregates list of specified pattern to  make browsing artifacts easier. Printing them as an HTML index."
 commands:
-  summarize:
+  with_summary:
     parameters:
       parent_folder:
         type: string
@@ -27,3 +27,6 @@ commands:
             done
 
             echo "</ul></body></html>" >> $PARENT/summary.html
+
+      - store_artifacts:
+          path: <<parameters.parent_folder>>

@@ -11,7 +11,7 @@ jobs:
           echo "file1" >> reports/junit/reportA/index.html
           echo "file2" >> reports/junit/reportB/index.html
           echo "file3" >> reports/junit/reportC/index.html
-      - artifacts/summarize
+      - artifacts/with_summary
       - store_artifacts:
           path: reports
           destination: reports

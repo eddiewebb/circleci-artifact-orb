@@ -22,7 +22,7 @@ function setup {
 
   # when
   assert_jq_match '.jobs | length' 1
-  assert_jq_match '.jobs["build"].steps | length' 3
+  assert_jq_match '.jobs["build"].steps | length' 4
 
 }
 
